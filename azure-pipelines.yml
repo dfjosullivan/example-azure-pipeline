@@ -38,7 +38,7 @@ steps:
 
 - script: |
     ls
-    activate py38k
+    activate ExampleDeployment
     pytest --version
     pytest
   displayName: 'pytest'
