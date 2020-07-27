@@ -38,12 +38,7 @@ steps:
 
 - script: |
     ls
-    activate py38r
+    activate py38k
     pytest --version
     pytest
-    python -m pytest
   displayName: 'pytest'
-
-
-- script: python -m pytest
-  displayName: 'pytest2'
