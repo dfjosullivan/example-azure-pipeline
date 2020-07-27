@@ -37,7 +37,6 @@ steps:
   displayName: Create Anaconda environment
 
 - script: |
-    ls
     activate ExampleDeployment
     pytest --version
     pytest -s
