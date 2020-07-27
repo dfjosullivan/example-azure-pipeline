@@ -1,0 +1,49 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- master
+- '*'
+
+pool:
+  vmImage: 'windows-latest'
+strategy:
+  matrix:
+    Python38:
+      python.version: '3.8'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+  displayName: 'Use Python $(python.version)'
+
+- powershell: Write-Host "##vso[task.prependpath]$env:CONDA\Scripts"
+  displayName: Add conda to PATH
+
+
+- script: conda init cmd.exe
+  displayName: Initialise Conda Variables
+
+- script: conda --version
+  displayName: Conda Version
+
+- script: conda config --add channels conda-forge
+  displayName: Add conda forge
+
+- script: conda env create --file ./environments/environment.yml
+  displayName: Create Anaconda environment
+
+- script: |
+    ls
+    activate py38r
+    pytest --version
+    pytest
+    python -m pytest
+  displayName: 'pytest'
+
+
+- script: python -m pytest
+  displayName: 'pytest2'

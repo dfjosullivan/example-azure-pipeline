@@ -1,0 +1,31 @@
+name: ExampleDeployment
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - atomicwrites=1.4.0
+  - attrs=19.3.0
+  - ca-certificates=2020.6.20
+  - certifi=2020.6.20
+  - colorama=0.4.3
+  - more-itertools=8.4.0
+  - openssl=1.1.1g
+  - packaging=20.4
+  - pip=20.1.1
+  - pluggy=0.13.1
+  - py=1.9.0
+  - pyparsing=2.4.7
+  - pytest=5.4.3
+  - pytest-azurepipelines=0.8.0
+  - python=3.8.5
+  - python_abi=3.8
+  - setuptools=49.2.0
+  - six=1.15.0
+  - sqlite=3.32.3
+  - vc=14.1
+  - vs2015_runtime=14.16.27012
+  - wcwidth=0.2.5
+  - wheel=0.34.2
+  - wincertstore=0.2
+  - yaml=0.2.5
+prefix: C:\ProgramData\Anaconda3\envs\ExampleDeployment
