@@ -40,5 +40,5 @@ steps:
     ls
     activate ExampleDeployment
     pytest --version
-    pytest
+    pytest -s
   displayName: 'pytest'
