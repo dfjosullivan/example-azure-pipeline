@@ -7,5 +7,5 @@ def test_simple1():
 
 
 def test_simple2():
-    print("Running Test 1")
-    assert(2 == 2)
+    print("Running Test 2")
+    assert(3 == 2)
