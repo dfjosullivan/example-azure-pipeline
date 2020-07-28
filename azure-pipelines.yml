@@ -47,6 +47,8 @@ steps:
     testResultsFiles: '**/test-*.xml'
     testResultsFormat: 'JUnit'
     testRunTitle: 'Publish test results for Python $(python.version)'
+  condition: succeededOrFailed()   
+  failTaskOnFailedTests: true
   displayName: 'output'
   
 
