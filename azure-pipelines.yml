@@ -39,5 +39,11 @@ steps:
 - script: |
     activate ExampleDeployment
     pytest --version
-    pytest -s
+    pytest -s -junitxml=reports/django-basic.xml
   displayName: 'pytest'
+
+- task: PublishTestResults@2
+    inputs:
+      testResultsFiles: 'reports/django-basic.xml'
+      testRunTitle: '$(Agent.OS) - $(Build.DefinitionName) - Python $(python.version)'
+    condition: succeededOrFailed()
