@@ -39,7 +39,7 @@ steps:
 - script: |
     activate ExampleDeployment
     pytest --version
-    pytest -s 
+    pytest -s tests\example-tests\ 
   displayName: 'pytest'
 
 - task: PublishTestResults@2
