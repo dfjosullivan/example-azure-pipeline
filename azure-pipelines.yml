@@ -49,7 +49,6 @@ steps:
     testRunTitle: 'Publish test results for Python $(python.version)'
     condition: succeededOrFailed()   
     failTaskOnFailedTests: true
-    continueOnError: true
   displayName: 'output'
   
 
