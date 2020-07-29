@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="2" hostname="Dev3" name="pytest" skipped="0" tests="2" time="0.187" timestamp="2020-07-29T01:06:15.851237"><testcase classname="tests.example_tests.example_test" file="tests\example_tests\example_test.py" line="2" name="test_simple1" time="0.001"><failure message="assert 1 == 2">def test_simple1():
+        print (&quot;Running Test 1&quot;)
+&gt;       assert(1 == 2)
+E       assert 1 == 2
+
+tests\example_tests\example_test.py:5: AssertionError</failure></testcase><testcase classname="tests.example_tests.example_test" file="tests\example_tests\example_test.py" line="8" name="test_simple2" time="0.003"><failure message="assert 3 == 2">def test_simple2():
+        print(&quot;Running Test 2&quot;)
+&gt;       assert(3 == 2)
+E       assert 3 == 2
+
+tests\example_tests\example_test.py:11: AssertionError</failure></testcase></testsuite></testsuites>
