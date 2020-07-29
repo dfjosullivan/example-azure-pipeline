@@ -41,16 +41,12 @@ steps:
 - script: |
     activate ExampleDeployment
     pytest --version
-    pytest -s --junitxml=test=out.xml tests\
+    pytest -s --junitxml=test-out.xml tests\
   displayName: 'pytest'
 
 - task: PublishTestResults@2
+  condition: succeededOrFailed()
   inputs:
     testResultsFiles: '**/test-*.xml'
-    testResultsFormat: 'JUnit'
     testRunTitle: 'Publish test results for Python $(python.version)'
-    condition: succeededOrFailed()   
-    failTaskOnFailedTests: true
-  displayName: 'output'
-  
 
