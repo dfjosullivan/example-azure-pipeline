@@ -39,7 +39,7 @@ steps:
   displayName: Create Anaconda environment
 
 - script: |
-    activate ExampleDeployment
+    call activate ExampleDeployment
     pytest --version
     pytest tests --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml --cov-report=html
   displayName: 'pytest'
@@ -56,7 +56,7 @@ steps:
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
-    testResultsFiles: '**/test-*.xml'
+    testResultsFiles: 'junit/*.xml'
     testRunTitle: 'Publish test results for Python $(python.version)'
 
 - task: PublishCodeCoverageResults@1
