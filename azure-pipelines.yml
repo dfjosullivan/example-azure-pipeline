@@ -41,8 +41,17 @@ steps:
 - script: |
     activate ExampleDeployment
     pytest --version
-    pytest -s --junitxml=test-out.xml tests\
+    pytest -s --junitxml=test-out.xml
   displayName: 'pytest'
+
+- script:
+    ls
+  displayName: 'top dir files'
+
+- script: |
+    cd tests
+    ls
+  displayName: 'second top dir files'
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
