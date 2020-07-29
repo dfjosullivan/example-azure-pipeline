@@ -41,7 +41,7 @@ steps:
 - script: |
     activate ExampleDeployment
     pytest --version
-    pytest tests --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml --cov-report=html
+    pytest tests --doctest-modules --junitxml=junit/test-results.xml
   displayName: 'pytest'
 
 - script:
