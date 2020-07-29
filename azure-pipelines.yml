@@ -41,7 +41,7 @@ steps:
 - script: |
     activate ExampleDeployment
     pytest --version
-    pytest -s --junitxml tests\example-tests\
+    pytest -s --junitxml=test=out.xml tests\
   displayName: 'pytest'
 
 - task: PublishTestResults@2
