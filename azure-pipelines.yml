@@ -42,10 +42,14 @@ steps:
     activate ExampleDeployment
     pytest --version
     pytest tests --doctest-modules --junitxml=junit/test-results.xml
+  inputs:
+    workingDirectory: '$(system.defaultworkingdirectory)'
   displayName: 'pytest'
 
 - script:
     ls
+  inputs:
+    workingDirectory: '$(system.defaultworkingdirectory)'
   displayName: 'top dir files'
 
 - script: |
@@ -58,6 +62,7 @@ steps:
   inputs:
     testResultsFiles: 'junit/*.xml'
     testRunTitle: 'Publish test results for Python $(python.version)'
+    workingDirectory: '$(system.defaultworkingdirectory)'
 
 - task: PublishCodeCoverageResults@1
   inputs:
