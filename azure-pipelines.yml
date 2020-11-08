@@ -35,7 +35,7 @@ steps:
 - script: conda config --add channels conda-forge
   displayName: Add conda forge
 
-- script: conda env create --file ./environments/environment.yml
+- script: conda env create --quiet --file environment.yml
   displayName: Create Anaconda environment
 
 - script: |
@@ -45,30 +45,12 @@ steps:
 
   displayName: 'pytest'
 
-- script:
-    ls
-  displayName: 'top dir files'
-
 - script: |
-    cd tests
-    ls
-  displayName: 'second top dir files'
-
-- script: |
-    cd $(System.DefaultWorkingDirectory)
-    ls
-  displayName: 'working dir'
-
-
+    call activate myEnvironment
+    pytest --junitxml=junit/unit-test.xml
+  displayName: pytest
 
 - task: PublishTestResults@2
+  inputs:
+    testResultsFiles: 'junit/*.xml'
   condition: succeededOrFailed()
-  inputs:
-    testResultsFiles: '**/test-*.xml'
-    testRunTitle: 'Publish test results for Python $(python.version)'
-
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: Cobertura
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
-    reportDirectory: '$(System.DefaultWorkingDirectory)/**/htmlcov'
