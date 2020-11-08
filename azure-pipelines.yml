@@ -35,7 +35,7 @@ steps:
 - script: conda config --add channels conda-forge
   displayName: Add conda forge
 
-- script: conda env create --quiet --file environment.yml
+- script: conda env create --file ./environments/environment.yml
   displayName: Create Anaconda environment
 
 - script: |
