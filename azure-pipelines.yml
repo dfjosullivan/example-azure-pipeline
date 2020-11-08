@@ -39,16 +39,11 @@ steps:
   displayName: Create Anaconda environment
 
 - script: |
-    activate ExampleDeployment
+    call activate ExampleDeployment
     pytest --version
-    pytest tests --doctest-modules --junitxml=junit/test-results.xml
+    pytest tests --junitxml=junit/test-results.xml
 
-  displayName: 'pytest'
-
-- script: |
-    call activate myEnvironment
-    pytest --junitxml=junit/unit-test.xml
-  displayName: pytest
+  displayName: pytest Tests
 
 - task: PublishTestResults@2
   inputs:
